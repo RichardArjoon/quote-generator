@@ -33,7 +33,7 @@ async function getQuote() {
     } else {
       authorText.innerText = data.quoteAuthor;
     }
-    // Reduct font size for long quotes
+    // Reduce font size for long quotes
     if (data.quoteText.length > 120) {
       quoteText.classList.add('long-quote');
     } else {
@@ -42,8 +42,12 @@ async function getQuote() {
     quoteText.innerText = data.quoteText;
 
     removeLoadingSpinner();
+    // throw new Error('Error');
   } catch (error) {
     getQuote();
+    // Fallback example
+    // quoteText.textContent = 'Error loading Page';
+    // authorText.textContent = 'Problems with the server (404)';
   }
 }
 
